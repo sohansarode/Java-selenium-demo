@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-07T15:01:35 IST" name="Default suite" finished-at="2025-06-07T15:01:45 IST" duration-ms="9547">
+  <suite started-at="2025-06-17T12:18:29 IST" name="Test Suite" finished-at="2025-06-17T12:19:21 IST" duration-ms="52312">
     <groups>
       <group name="regression">
-        <method signature="LoginExceldataprovider.Login_test_with_Invalid_data_test(java.lang.String,java.lang.String)[pri:0, instance:pagestest.LoginExceldataprovider@436390f4]" name="Login_test_with_Invalid_data_test" class="pagestest.LoginExceldataprovider"/>
-        <method signature="LoginExceldataprovider.Login_test_with_valid_data_test(java.lang.String,java.lang.String)[pri:1, instance:pagestest.LoginExceldataprovider@436390f4]" name="Login_test_with_valid_data_test" class="pagestest.LoginExceldataprovider"/>
+        <method signature="Login.Login_test_with_Invalid_data_test()[pri:0, instance:pagestest.Login@7123be6c]" name="Login_test_with_Invalid_data_test" class="pagestest.Login"/>
+        <method signature="LoginExceldataprovider.Login_test_with_Invalid_data_test(java.lang.String,java.lang.String)[pri:0, instance:pagestest.LoginExceldataprovider@3c4262d1]" name="Login_test_with_Invalid_data_test" class="pagestest.LoginExceldataprovider"/>
+        <method signature="Login.Login_test_with_valid_data_test()[pri:1, instance:pagestest.Login@7123be6c]" name="Login_test_with_valid_data_test" class="pagestest.Login"/>
+        <method signature="LoginExceldataprovider.Login_test_with_valid_data_test(java.lang.String,java.lang.String)[pri:1, instance:pagestest.LoginExceldataprovider@3c4262d1]" name="Login_test_with_valid_data_test" class="pagestest.LoginExceldataprovider"/>
       </group> <!-- regression -->
       <group name="smoke">
-        <method signature="LoginExceldataprovider.Login_test_with_valid_data_test(java.lang.String,java.lang.String)[pri:1, instance:pagestest.LoginExceldataprovider@436390f4]" name="Login_test_with_valid_data_test" class="pagestest.LoginExceldataprovider"/>
+        <method signature="Login.Login_test_with_valid_data_test()[pri:1, instance:pagestest.Login@7123be6c]" name="Login_test_with_valid_data_test" class="pagestest.Login"/>
+        <method signature="LoginExceldataprovider.Login_test_with_valid_data_test(java.lang.String,java.lang.String)[pri:1, instance:pagestest.LoginExceldataprovider@3c4262d1]" name="Login_test_with_valid_data_test" class="pagestest.LoginExceldataprovider"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2025-06-07T15:01:35 IST" name="Default test" finished-at="2025-06-07T15:01:45 IST" duration-ms="9547">
+    <test started-at="2025-06-17T12:18:29 IST" name="Functional Tests" finished-at="2025-06-17T12:19:21 IST" duration-ms="52312">
       <class name="pagestest.LoginExceldataprovider">
-        <test-method is-config="true" signature="bridgeBrowserSetup()[pri:0, instance:pagestest.LoginExceldataprovider@436390f4]" started-at="2025-06-07T15:01:27 IST" name="bridgeBrowserSetup" finished-at="2025-06-07T15:01:35 IST" duration-ms="8562" status="PASS">
+        <test-method is-config="true" signature="bridgeBrowserSetup()[pri:0, instance:pagestest.LoginExceldataprovider@3c4262d1]" started-at="2025-06-17T12:18:51 IST" name="bridgeBrowserSetup" finished-at="2025-06-17T12:18:56 IST" duration-ms="5287" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- bridgeBrowserSetup -->
-        <test-method is-config="true" signature="Set_Up_Report()[pri:0, instance:pagestest.LoginExceldataprovider@436390f4]" started-at="2025-06-07T15:01:35 IST" name="Set_Up_Report" finished-at="2025-06-07T15:01:36 IST" duration-ms="98" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Set_Up_Report -->
-        <test-method signature="Login_test_with_Invalid_data_test(java.lang.String,java.lang.String)[pri:0, instance:pagestest.LoginExceldataprovider@436390f4]" started-at="2025-06-07T15:01:36 IST" name="Login_test_with_Invalid_data_test" data-provider="invalidLoginData" finished-at="2025-06-07T15:01:38 IST" duration-ms="2023" status="PASS">
+        <test-method signature="Login_test_with_Invalid_data_test(java.lang.String,java.lang.String)[pri:0, instance:pagestest.LoginExceldataprovider@3c4262d1]" started-at="2025-06-17T12:18:57 IST" name="Login_test_with_Invalid_data_test" data-provider="invalidLoginData" finished-at="2025-06-17T12:18:58 IST" duration-ms="989" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -38,7 +37,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login_test_with_Invalid_data_test -->
-        <test-method signature="Login_test_with_valid_data_test(java.lang.String,java.lang.String)[pri:1, instance:pagestest.LoginExceldataprovider@436390f4]" started-at="2025-06-07T15:01:38 IST" name="Login_test_with_valid_data_test" data-provider="validLoginData" finished-at="2025-06-07T15:01:45 IST" duration-ms="6499" status="PASS">
+        <test-method signature="Login_test_with_valid_data_test(java.lang.String,java.lang.String)[pri:1, instance:pagestest.LoginExceldataprovider@3c4262d1]" started-at="2025-06-17T12:18:58 IST" name="Login_test_with_valid_data_test" data-provider="validLoginData" finished-at="2025-06-17T12:19:03 IST" duration-ms="5847" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -54,15 +53,55 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login_test_with_valid_data_test -->
-        <test-method is-config="true" signature="End_Test()[pri:0, instance:pagestest.LoginExceldataprovider@436390f4]" started-at="2025-06-07T15:01:45 IST" name="End_Test" finished-at="2025-06-07T15:01:45 IST" duration-ms="194" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- End_Test -->
-        <test-method is-config="true" signature="Close_Browser()[pri:0, instance:pagestest.LoginExceldataprovider@436390f4]" started-at="2025-06-07T15:01:45 IST" name="Close_Browser" finished-at="2025-06-07T15:01:46 IST" duration-ms="751" status="PASS">
+        <test-method is-config="true" signature="Close_Browser()[pri:0, instance:pagestest.LoginExceldataprovider@3c4262d1]" started-at="2025-06-17T12:19:03 IST" name="Close_Browser" finished-at="2025-06-17T12:19:04 IST" duration-ms="435" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Close_Browser -->
       </class> <!-- pagestest.LoginExceldataprovider -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="pagestest.Login">
+        <test-method is-config="true" signature="Set_Up_Report()[pri:0, instance:pagestest.Login@7123be6c]" started-at="2025-06-17T12:18:29 IST" name="Set_Up_Report" finished-at="2025-06-17T12:18:29 IST" duration-ms="105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Set_Up_Report -->
+        <test-method is-config="true" signature="bridgeBrowserSetup()[pri:0, instance:pagestest.Login@7123be6c]" started-at="2025-06-17T12:18:29 IST" name="bridgeBrowserSetup" finished-at="2025-06-17T12:18:40 IST" duration-ms="10330" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bridgeBrowserSetup -->
+        <test-method signature="Login_test_with_Invalid_data_test()[pri:0, instance:pagestest.Login@7123be6c]" started-at="2025-06-17T12:18:40 IST" name="Login_test_with_Invalid_data_test" finished-at="2025-06-17T12:18:46 IST" duration-ms="6092" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_test_with_Invalid_data_test -->
+        <test-method signature="Login_test_with_valid_data_test()[pri:1, instance:pagestest.Login@7123be6c]" started-at="2025-06-17T12:18:46 IST" name="Login_test_with_valid_data_test" description="Verifies successful login with valid credentials" finished-at="2025-06-17T12:18:50 IST" duration-ms="4124" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_test_with_valid_data_test -->
+        <test-method is-config="true" signature="Close_Browser()[pri:0, instance:pagestest.Login@7123be6c]" started-at="2025-06-17T12:18:50 IST" name="Close_Browser" finished-at="2025-06-17T12:18:51 IST" duration-ms="1293" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close_Browser -->
+        <test-method is-config="true" signature="End_Test()[pri:0, instance:pagestest.Login@7123be6c]" started-at="2025-06-17T12:19:21 IST" name="End_Test" finished-at="2025-06-17T12:19:21 IST" duration-ms="159" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- End_Test -->
+      </class> <!-- pagestest.Login -->
+      <class name="pagestest.LoginJson">
+        <test-method is-config="true" signature="bridgeBrowserSetup()[pri:0, instance:pagestest.LoginJson@31f20c9f]" started-at="2025-06-17T12:19:04 IST" name="bridgeBrowserSetup" finished-at="2025-06-17T12:19:09 IST" duration-ms="4789" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bridgeBrowserSetup -->
+        <test-method signature="Login_test_with_Invalid_data_test()[pri:0, instance:pagestest.LoginJson@31f20c9f]" started-at="2025-06-17T12:19:09 IST" name="Login_test_with_Invalid_data_test" finished-at="2025-06-17T12:19:17 IST" duration-ms="7949" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_test_with_Invalid_data_test -->
+        <test-method signature="Login_test_with_valid_data_test()[pri:1, instance:pagestest.LoginJson@31f20c9f]" started-at="2025-06-17T12:19:17 IST" name="Login_test_with_valid_data_test" description="Verifies successful login with valid credentials" finished-at="2025-06-17T12:19:20 IST" duration-ms="3887" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_test_with_valid_data_test -->
+        <test-method is-config="true" signature="Close_Browser()[pri:0, instance:pagestest.LoginJson@31f20c9f]" started-at="2025-06-17T12:19:20 IST" name="Close_Browser" finished-at="2025-06-17T12:19:21 IST" duration-ms="742" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close_Browser -->
+      </class> <!-- pagestest.LoginJson -->
+    </test> <!-- Functional Tests -->
+  </suite> <!-- Test Suite -->
 </testng-results>

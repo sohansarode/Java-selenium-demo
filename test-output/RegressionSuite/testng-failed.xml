@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [RegressionSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="RegressionTests(failed)">
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="pagestest.LoginExceldataprovider">
+        <methods>
+          <include name="Login_test_with_valid_data_test" invocation-numbers="0"/>
+          <include name="Set_Up_Report"/>
+          <include name="Login_test_with_Invalid_data_test" invocation-numbers="0"/>
+          <include name="End_Test"/>
+        </methods>
+      </class> <!-- pagestest.LoginExceldataprovider -->
+    </classes>
+  </test> <!-- RegressionTests(failed) -->
+</suite> <!-- Failed suite [RegressionSuite] -->

@@ -1,19 +1,16 @@
 package base;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import utils.ConfigReader;
 
 public class Browser_Setup extends ConfigReader {
 	Thread popupHandlerThread = new Thread(() -> checkAndClosePopup());
 
-	// @BeforeSuite
 	protected void Browser_Launch() throws Exception {
 
 		// Start recording the screen for test execution.
@@ -63,12 +60,12 @@ public class Browser_Setup extends ConfigReader {
 		driver.navigate().to(prop1.getProperty("url"));
 	}
 
-	@BeforeSuite(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void bridgeBrowserSetup() throws Exception {
 		new Browser_Setup().Browser_Launch(); // ✅ Calls your actual browser setup
 	}
 
-	@AfterSuite
+	@AfterClass(alwaysRun = true)
 	protected void Close_Browser() throws Exception {
 		driver.quit();
 		My_Screen_Recorder.Stop_Recording();

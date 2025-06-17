@@ -298,10 +298,7 @@ public class CommonUtils extends Browser_Setup {
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(Element));
 
-			String elementName = Element.getAccessibleName();
-			if (elementName == null || elementName.isEmpty()) {
-				elementName = Element.toString();
-			}
+			String elementName = GetElementName(Element);
 
 			ReportUtils.Info("Attempting to click element : " + elementName);
 
@@ -326,11 +323,11 @@ public class CommonUtils extends Browser_Setup {
 			}
 
 			ReportUtils.Info("Attempting to click element using JavaScript");
-
+			String elementName = GetElementName(Element);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", Element);
 
-			ReportUtils.Info("Successfully clicked element using JavaScript : " + Element);
+			ReportUtils.Info("Successfully clicked element using JavaScript : " + elementName);
 		} catch (Exception e) {
 			ReportUtils.Fail_Test("Error clicking element using JavaScript : " + e.getMessage());
 			throw new RuntimeException("Error clicking element using JavaScript : " + e.getMessage());
@@ -375,12 +372,13 @@ public class CommonUtils extends Browser_Setup {
 			if (!element.isDisplayed() || !element.isEnabled()) {
 				throw new AssertionError("Element is not visible or enabled for double click : " + element);
 			}
+			String elementName = GetElementName(element);
 
 			ReportUtils.Info("Attempting double click on element");
 
 			actions.doubleClick(element).perform();
 
-			ReportUtils.Info("Successfully performed double click on element");
+			ReportUtils.Info("Successfully performed double click on element: " + elementName);
 		} catch (Exception e) {
 			ReportUtils.Fail_Test("Error performing double click : " + e.getMessage());
 			throw new RuntimeException("Error performing double click : " + e.getMessage());
@@ -400,13 +398,7 @@ public class CommonUtils extends Browser_Setup {
 				throw new AssertionError("Element is not visible or enabled : " + Element);
 			}
 
-			String elementName = Element.getAccessibleName();
-			if (elementName == null || elementName.isEmpty()) {
-				elementName = Element.getText();
-				if (elementName == null || elementName.isEmpty()) {
-					elementName = Element.toString();
-				}
-			}
+			String elementName = GetElementName(Element);
 
 			ReportUtils.Info("Sending keys to element : " + elementName);
 
@@ -473,7 +465,7 @@ public class CommonUtils extends Browser_Setup {
 			Element.clear();
 			ReportUtils.Info("Cleared element content");
 
-			String elementName = Element.getAccessibleName();
+			String elementName = GetElementName(Element);
 			if (elementName == null || elementName.isEmpty()) {
 				elementName = Element.toString();
 			}
@@ -508,12 +500,13 @@ public class CommonUtils extends Browser_Setup {
 			if (!Element.isDisplayed() || !Element.isEnabled()) {
 				throw new AssertionError("Element is not visible or enabled : " + Element);
 			}
+			String elementName = GetElementName(Element);
 
-			ReportUtils.Info("Attempting to clear element data");
+			ReportUtils.Info("Attempting to clear element data :" + elementName);
 
 			Element.clear();
 
-			ReportUtils.Info("Successfully cleared element data");
+			ReportUtils.Info("Successfully cleared element data :" + elementName);
 
 		} catch (TimeoutException e) {
 			ReportUtils.Fail_Test("Timeout waiting for element : " + Element);
@@ -705,9 +698,10 @@ public class CommonUtils extends Browser_Setup {
 		ReportUtils.Info("Attempting to move to element");
 
 		try {
+			String elementName = GetElementName(Element);
 			Actions actions = new Actions(driver);
 			actions.moveToElement(Element).perform();
-			ReportUtils.Info("Successfully moved to element");
+			ReportUtils.Info("Successfully moved to element :" + elementName);
 		} catch (Exception e) {
 			ReportUtils.Fail_Test("Failed to move to element : " + e.getMessage());
 			throw new RuntimeException("Error moving to element : " + e.getMessage());
@@ -720,9 +714,10 @@ public class CommonUtils extends Browser_Setup {
 		ReportUtils.Info("Attempting to move to element and click");
 
 		try {
+			String elementName = GetElementName(Element);
 			Actions actions = new Actions(driver);
 			actions.moveToElement(Element).click().perform();
-			ReportUtils.Info("Successfully moved to element and clicked");
+			ReportUtils.Info("Successfully moved to element and clicked :" + elementName);
 		} catch (Exception e) {
 			ReportUtils.Fail_Test("Failed to move and click element : " + e.getMessage());
 			throw new RuntimeException("Error moving and clicking element : " + e.getMessage());
@@ -735,9 +730,12 @@ public class CommonUtils extends Browser_Setup {
 		ReportUtils.Info("Attempting drag and drop operation");
 
 		try {
+			String elementName = GetElementName(Source);
+			String elementName1 = GetElementName(Target);
 			Actions actions = new Actions(driver);
 			actions.dragAndDrop(Source, Target).perform();
-			ReportUtils.Info("Successfully completed drag and drop");
+			ReportUtils.Info(
+					"Successfully completed drag and drop from source " + elementName + "to target " + elementName1);
 		} catch (Exception e) {
 			ReportUtils.Fail_Test("Drag and drop failed : " + e.getMessage());
 			throw new RuntimeException("Error performing drag and drop : " + e.getMessage());
@@ -765,9 +763,10 @@ public class CommonUtils extends Browser_Setup {
 		ReportUtils.Info("Attempting right click on element");
 
 		try {
+			String elementName = GetElementName(Element);
 			Actions actions = new Actions(driver);
 			actions.contextClick(Element).perform();
-			ReportUtils.Info("Successfully performed right click");
+			ReportUtils.Info("Successfully performed right click :" + elementName);
 		} catch (Exception e) {
 			ReportUtils.Fail_Test("Right-click failed : " + e.getMessage());
 			throw new RuntimeException("Error performing right-click : " + e.getMessage());
@@ -780,9 +779,10 @@ public class CommonUtils extends Browser_Setup {
 		ReportUtils.Info("Attempting click and hold on element");
 
 		try {
+			String elementName = GetElementName(Element);
 			Actions actions = new Actions(driver);
 			actions.clickAndHold(Element).perform();
-			ReportUtils.Info("Successfully performed click and hold");
+			ReportUtils.Info("Successfully performed click and hold :" + elementName);
 		} catch (Exception e) {
 			ReportUtils.Fail_Test("Click and hold failed : " + e.getMessage());
 			throw new RuntimeException("Error performing click and hold : " + e.getMessage());
@@ -794,7 +794,7 @@ public class CommonUtils extends Browser_Setup {
 //========================================-- Boolean Methods Starts --=========================================================================//	
 
 	public static boolean Is_Displayed(WebElement Element) {
-		String elementName = getElementName(Element);
+		String elementName = GetElementName(Element);
 		ReportUtils.Info("Checking if element is displayed : " + elementName);
 
 		try {
@@ -813,7 +813,7 @@ public class CommonUtils extends Browser_Setup {
 	// -----------------------------------------------------------------------------------------------------------------------------------------//
 
 	public static boolean Is_Clickable(WebElement Element) {
-		String elementName = getElementName(Element);
+		String elementName = GetElementName(Element);
 		ReportUtils.Info("Checking if element is clickable : " + elementName);
 
 		try {
@@ -832,7 +832,7 @@ public class CommonUtils extends Browser_Setup {
 	// -----------------------------------------------------------------------------------------------------------------------------------------//
 
 	public static boolean Is_Enabled(WebElement Element) {
-		String elementName = getElementName(Element);
+		String elementName = GetElementName(Element);
 		ReportUtils.Info("Checking if element is enabled : " + elementName);
 
 		try {
@@ -851,7 +851,7 @@ public class CommonUtils extends Browser_Setup {
 	// -----------------------------------------------------------------------------------------------------------------------------------------//
 
 	public static boolean Is_Selected(WebElement Element) {
-		String elementName = getElementName(Element);
+		String elementName = GetElementName(Element);
 		ReportUtils.Info("Checking if element is selected : " + elementName);
 
 		try {
@@ -870,7 +870,7 @@ public class CommonUtils extends Browser_Setup {
 	// -----------------------------------------------------------------------------------------------------------------------------------------//
 
 	public static boolean Is_Present(WebElement Element) {
-		String elementName = getElementName(Element);
+		String elementName = GetElementName(Element);
 		ReportUtils.Info("Checking if element is present : " + elementName);
 
 		try {
@@ -886,7 +886,7 @@ public class CommonUtils extends Browser_Setup {
 	// -----------------------------------------------------------------------------------------------------------------------------------------//
 
 	public static boolean Contains_Text(WebElement Element, String text) {
-		String elementName = getElementName(Element);
+		String elementName = GetElementName(Element);
 		ReportUtils.Info("Checking if element contains text : '" + text + "' in " + elementName);
 
 		try {
@@ -903,18 +903,6 @@ public class CommonUtils extends Browser_Setup {
 	}
 
 	// -----------------------------------------------------------------------------------------------------------------------------------------//
-
-	// ✅ Utility method to get element name for logging
-	private static String getElementName(WebElement Element) {
-		String elementName = Element.getAccessibleName();
-		if (elementName == null || elementName.isEmpty()) {
-			elementName = Element.getText();
-			if (elementName == null || elementName.isEmpty()) {
-				elementName = Element.toString();
-			}
-		}
-		return elementName;
-	}
 
 //========================================-- Boolean Methods Ends --=======================================================================//
 
@@ -1241,15 +1229,15 @@ public class CommonUtils extends Browser_Setup {
 //========================================-- Utility Methods Starts --================================================================//
 
 	public static List<String> Get_Text_From_WebElement_List(List<WebElement> elementList) {
-	    ReportUtils.Info("Getting text from WebElement list of size : " + elementList.size());
+		ReportUtils.Info("Getting text from WebElement list of size : " + elementList.size());
 
-	    List<String> textList = new ArrayList<>();
-	    for (WebElement element : elementList) {
-	        textList.add(element.getText().trim()); // Trim to remove leading/trailing spaces
-	    }
+		List<String> textList = new ArrayList<>();
+		for (WebElement element : elementList) {
+			textList.add(element.getText().trim()); // Trim to remove leading/trailing spaces
+		}
 
-	    ReportUtils.Info("Retrieved " + textList.size() + " text elements");
-	    return textList;
+		ReportUtils.Info("Retrieved " + textList.size() + " text elements");
+		return textList;
 	}
 
 //-----------------------------------------------------------------------------------------------------------------------------------------//
@@ -1408,5 +1396,61 @@ public class CommonUtils extends Browser_Setup {
 
 		ReportUtils.Info("No text found in element");
 		return "No text available";
+	}
+
+	public static String GetElementName(WebElement element) {
+		if (element == null) {
+			return "Null WebElement";
+		}
+
+		String elementName = "";
+
+		try {
+			// 1. Try getAccessibleName (if supported)
+			elementName = element.getAccessibleName();
+
+			// 2. Try useful attributes
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.getAttribute("aria-label");
+
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.getAttribute("placeholder");
+
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.getAttribute("name");
+
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.getAttribute("id");
+
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.getAttribute("title");
+
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.getAttribute("value");
+
+			// 3. Try visible text
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.getText();
+
+			// 4. Try using JS to fetch label text
+			if ((elementName == null || elementName.trim().isEmpty()) && driver instanceof JavascriptExecutor) {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				elementName = (String) js.executeScript("var el = arguments[0];"
+						+ "if (el.labels && el.labels.length > 0) return el.labels[0].innerText;"
+						+ "if (el.getAttribute('aria-label')) return el.getAttribute('aria-label');"
+						+ "if (el.getAttribute('title')) return el.getAttribute('title');"
+						+ "return el.innerText || el.getAttribute('value') || el.getAttribute('name') || el.getAttribute('id');",
+						element);
+			}
+
+			// 5. Final fallback
+			if (elementName == null || elementName.trim().isEmpty())
+				elementName = element.toString();
+
+		} catch (Exception e) {
+			elementName = "UnknownElement(" + element.toString() + ")";
+		}
+
+		return elementName.trim();
 	}
 }
