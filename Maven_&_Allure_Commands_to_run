@@ -1,0 +1,24 @@
+All Maven commands
+
+//Smoke
+mvn test -DsuiteXmlFile=src/test/resources/smoke.xml   //TO run smoke test suite
+mvn test -DsuiteXmlFile=src/test/resources/smoke.xml -Dheadless=true    //TO run smoke Headless
+mvn test -DsuiteXmlFile=src/test/resources/smoke.xml -Denvironment=QA -Dbrowser=chrome   //to run smoke on specific env and browser headed
+mvn test -DsuiteXmlFile=src/test/resources/smoke.xml -Denvironment=QA -Dbrowser=chrome  -Dheadless=true   //to run smoke on specific env and browser headless
+mvn test -DsuiteXmlFile=src/test/resources/smoke.xml -Dparallel=tests -DthreadCount=3    //Run smoke suite in parallel using 3 threads
+
+
+//Regression
+mvn test -DsuiteXmlFile=src/test/resources/regression.xml   //To run regression test suite
+mvn test -DsuiteXmlFile=src/test/resources/regression.xml -Dheadless=true    //TO run regression Headless
+mvn test -DsuiteXmlFile=src/test/resources/regression.xml -Denvironment=QA -Dbrowser=chrome  //to run regression on specific env and browser headed
+mvn test -DsuiteXmlFile=src/test/resources/regression.xml -Denvironment=QA -Dbrowser=chrome  -Dheadless=true   //to run regression on specific env and browser headless
+mvn test -DsuiteXmlFile=src/test/resources/regression.xml -Dparallel=tests -DthreadCount=5   //Run regression suite in parallel using 5 threads
+
+
+//Allure
+
+allure serve allure-results    //Serve temporary live report
+allure generate allure-results --clean -o allure-report    //generate static HTML report
+allure open allure-report                                  //generate static HTML report
+

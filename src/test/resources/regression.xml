@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="RegressionSuite" verbose="1" parallel="classes" thread-count="3">
+    <test name="RegressionTests">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="pagestest.Login" />
+            <class name="pagestest.LoginExceldataprovider"/>
+            <class name="pagestest.LoginJson"/>
+        </classes>
+    </test>
+</suite>

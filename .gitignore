@@ -1,0 +1,45 @@
+/.apt_generated/
+/.apt_generated_tests/
+
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven target folder
+/target/
+
+# Eclipse specific files
+.classpath
+.project
+.settings/
+
+# VSCode settings
+.vscode/
+
+# Log files
+*.log
+LogFiles/
+AppiumLogs/
+
+# Test result folders
+test-output/
+Reports/
+Recordings/
+allure-results/
+
+# Ignore IntelliJ specific files if present
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Others
+*.iml
