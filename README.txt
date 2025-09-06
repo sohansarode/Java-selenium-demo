@@ -97,7 +97,7 @@ Seleniumdemo5/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/Seleniumdemo5.git
+git clone https://github.com/sohansarode/Java-selenium-demo.git
 cd Seleniumdemo5
 ```
 
